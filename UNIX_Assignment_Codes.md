@@ -110,17 +110,17 @@ here is my snippet of code used for data processing
 
 Here is my brief description of what this code does
 
-'mkdir' created a directory to carry out the experiment further; 
-changed the column ID to SNP_ID from group using 'sed' stream editor command
-join -1 1 -2 1 -t  = this command helped join the files
-ran the 'awk' command with 'for' and 'i' loop to find ZMMIL, ZMMMR, ZMMIR, in the joined file
-using the 'cut' command, all the words in the joined file that are ZMMIL, ZMMMR, ZMMIR were cut and transfered to a new file to do further data processing
-'sort -k3,3n maize.txt > maize_sort.txt'  command was used to sort the header according the given position of SNP_ID, Chromosome and position
-'grep' command was used to count the number of chromosomes and the number of times each chromosome appeared
-'head -n 1' and 'awk' command was used to count 10 files (1 for each chromosome) with SNPs ordered based on increasing position values and separate each chromosomes in their respective files
-'sed' stream editor command was used again to change the ? symbol to - hyphen, and separate them in a new file
-(head -n 1 Maize_allhyphen.txt && tail -n +2 Maize_allhyphen.txt | sort -k3,3nr) > Maize_decreasingall10.txt  - this code was used to sort the maize files in decreasing order
-'head -n 1' and 'awk' command was used to count 10 files (1 for each chromosome) with SNPs ordered based on decreasing position values and separate each chromosomes in their respective files
+`mkdir` created a directory to carry out the experiment further; 
+changed the column ID to SNP_ID from group using `sed` stream editor command
+`join -1 1 -2 1 -t`  = this command helped join the files
+ran the `awk` command with `for` and `i` loop to find ZMMIL, ZMMMR, ZMMIR, in the joined file
+using the `cut` command, all the words in the joined file that are ZMMIL, ZMMMR, ZMMIR were cut and transfered to a new file to do further data processing
+`sort -k3,3n maize.txt > maize_sort.txt`  command was used to sort the header according the given position of SNP_ID, Chromosome and position
+`grep` command was used to count the number of chromosomes and the number of times each chromosome appeared
+`head -n 1' and 'awk` command was used to count 10 files (1 for each chromosome) with SNPs ordered based on increasing position values and separate each chromosomes in their respective files
+`sed` stream editor command was used again to change the ? symbol to - hyphen, and separate them in a new file
+`(head -n 1 Maize_allhyphen.txt && tail -n +2 Maize_allhyphen.txt | sort -k3,3nr) > Maize_decreasingall10.txt`  - this code was used to sort the maize files in decreasing order
+`head -n 1` and `awk` command was used to count 10 files (1 for each chromosome) with SNPs ordered based on decreasing position values and separate each chromosomes in their respective files
 
 
 
@@ -171,12 +171,12 @@ here is my snippet of code used for data processing
 
 Here is my brief description of what this code does
 
-'mkdir' created a directory to carry out the experiment further; 
-ran the 'awk' command with 'for' and 'i' loop to find ZMPIL, ZMPJA, ZMPBA, in the joined file
-using the 'cut' command, all the words in the joined file that are ZMPIL, ZMPJA, ZMPBA were cut and transfered to a new file to do further data processing
-'sort -k3,3n teosinte.txt > teosinte_sort.txt'  command was used to sort the header according the given position of SNP_ID, Chromosome and position
-'grep' command was used to count the number of chromosomes and the number of times each chromosome appeared
-'head -n 1' and 'awk' command was used to count 10 files (1 for each chromosome) with SNPs ordered based on increasing position values and separate each chromosomes in their respective files
-'sed' stream editor command was used again to change the ? symbol to - hyphen, and separate them in a new file
-(head -n 1 Teosinte_allhyphen.txt && tail -n +2 Teosinte_allhyphen.txt | sort -k3,3nr) > Teosinte_decreasingall10.txt  - this code was used to sort the maize files in decreasing order
-'head -n 1' and 'awk' command was used to count 10 files (1 for each chromosome) with SNPs ordered based on decreasing position values and separate each chromosomes in their respective files
+`mkdir` created a directory to carry out the experiment further; 
+ran the 'awk' command with `for` and `i` loop to find ZMPIL, ZMPJA, ZMPBA, in the joined file
+using the `cut` command, all the words in the joined file that are ZMPIL, ZMPJA, ZMPBA were cut and transfered to a new file to do further data processing
+`sort -k3,3n teosinte.txt > teosinte_sort.txt`  command was used to sort the header according the given position of SNP_ID, Chromosome and position
+`grep` command was used to count the number of chromosomes and the number of times each chromosome appeared
+`head -n 1` and `awk` command was used to count 10 files (1 for each chromosome) with SNPs ordered based on increasing position values and separate each chromosomes in their respective files
+`sed` stream editor command was used again to change the ? symbol to - hyphen, and separate them in a new file
+`(head -n 1 Teosinte_allhyphen.txt && tail -n +2 Teosinte_allhyphen.txt | sort -k3,3nr) > Teosinte_decreasingall10.txt`  - this code was used to sort the maize files in decreasing order
+`head -n 1` and `awk` command was used to count 10 files (1 for each chromosome) with SNPs ordered based on decreasing position values and separate each chromosomes in their respective files
