@@ -2,7 +2,7 @@
 
 "This file contains a description of all the files made during the data processing."
 
-`UNIX_Assignment_Codes.md': contains all the codes that I ran for the assignment
+`UNIX_Assignment_Codes.md' : contains all the codes that I ran for the assignment
 
 "Here is the description of the "Maize" files":
 
