@@ -1,8 +1,8 @@
-#UNIX Assignment
+# UNIX Assignment
 
-##Data Inspection
+## Data Inspection
 
-###Attributes of `fang_et_al_genotypes`
+### Attributes of `fang_et_al_genotypes`
 
 ```
 here is my snippet of code used for data inspection
@@ -11,7 +11,7 @@ here is my snippet of code used for data inspection
 2. $ wc fang_et_al_genotypes.txt 
 3. $ file fang_et_al_genotypes.txt 
 4. $ awk -F "\t" '{print NF; exit}' fang_et_al_genotypes.txt 
-
+```
 By inspecting this file I learned that:
 
 1. Lists out the directory, size -11 megabytes, modification times and users: -rw-r--r--. 1 sristid domain users 11M Jan 29 13:44 fang_et_al_genotypes.txt
@@ -20,7 +20,7 @@ By inspecting this file I learned that:
 4. fang_et_al_genotypes.txt has 986 columns 
 
 
-###Attributes of `snp_position.txt`
+### Attributes of `snp_position.txt`
 
 ```
 here is my snippet of code used for data inspection
@@ -28,7 +28,7 @@ here is my snippet of code used for data inspection
 2. $ file snp_position.txt 
 3. $ wc snp_position.txt 
 4. $ awk -F "\t" '{print NF; exit}' snp_position.txt 
-
+```
 By inspecting this file I learned that:
 
 1. Lists out the directory, size - 81 kilobytes, modification time and users: sristid domain users 81K Jan 29 13:44 snp_position.txt
@@ -37,9 +37,9 @@ By inspecting this file I learned that:
 4. snp_position.txt file contains 15 number of columns
 
 
-##Data Processing
+## Data Processing
 
-###Maize Data
+### Maize Data
 
 ```
 here is my snippet of code used for data processing
@@ -72,19 +72,6 @@ here is my snippet of code used for data processing
 26. wc Maize_headersorted.txt   =984 1550778 6216783 Maize_headersorted.txt
 27. tail -n +6 Maize_headersorted.txt | awk -F "\t" '{print NF; exit}'   =1576
 28. grep -v "^#" Maize_headersorted.txt | cut -f2 | sort | uniq -c 
-    155 1
-     53 10
-    127 2
-    107 3
-     91 4
-    122 5
-     76 6
-     97 7
-     62 8
-     60 9
-      1 Chromosome
-      6 multiple
-     27 unknown
 29. { head -n 1 Maize_headersorted.txt && awk '$2 == 1' Maize_headersorted.txt; } > Maize_chr1.txt
 30. { head -n 1 Maize_headersorted.txt && awk '$2 == 2' Maize_headersorted.txt; } > Maize_chr2.txt
 31. { head -n 1 Maize_headersorted.txt && awk '$2 == 3' Maize_headersorted.txt; } > Maize_chr3.txt
@@ -98,19 +85,6 @@ here is my snippet of code used for data processing
 39. { head -n 1 Maize_headersorted.txt && awk '$2 == "multiple"' Maize_headersorted.txt; } > Maize_chrm.txt
 40. { head -n 1 Maize_headersorted.txt && awk '$2 == "unknown"' Maize_headersorted.txt; } > Maize_chru.txt
 41. wc Maize_chr1.txt Maize_chr2.txt Maize_chr3.txt Maize_chr4.txt Maize_chr5.txt Maize_chr6.txt Maize_chr7.txt Maize_chr8.txt Maize_chr9.txt Maize_chr10.txt Maize_chrm.txt Maize_chru.txt
-    156  245856  988210 Maize_chr1.txt
-    128  201728  811380 Maize_chr2.txt
-    108  170208  685104 Maize_chr3.txt
-     92  144992  584066 Maize_chr4.txt
-    123  193848  779831 Maize_chr5.txt
-     77  121352  489390 Maize_chr6.txt
-     98  154448  622008 Maize_chr7.txt
-     63   99288  400970 Maize_chr8.txt
-     61   96136  388329 Maize_chr9.txt
-     54   85104  344187 Maize_chr10.txt
-      7   11026   47345 Maize_chrm.txt
-     28   44128  180078 Maize_chru.txt
-    995 1568114 6320898 total
 42. awk -F "\t" '{print NF; exit}' Maize_chr1.txt Maize_chr2.txt Maize_chr3.txt Maize_chr4.txt Maize_chr5.txt Maize_chr6.txt Maize_chr7.txt Maize_chr8.txt Maize_chr9.txt Maize_chr10.txt Maize_chrm.txt Maize_chru.txt   =1576
 43. sed 's/?/-/g' Maize_headersorted.txt > Maize_allhyphen.txt 
 44. wc Maize_allhyphen.txt    =984 1550778 6216783 Maize_allhyphen.txt
@@ -130,19 +104,8 @@ here is my snippet of code used for data processing
 58. { head -n 1 Maize_decreasingall10.txt && awk '$2 == 9' Maize_decreasingall10.txt; } > Md_chr9.txt
 59. { head -n 1 Maize_decreasingall10.txt && awk '$2 == 10' Maize_decreasingall10.txt; } > Md_chr10.txt
 60. wc Md_chr1.txt Md_chr2.txt Md_chr3.txt Md_chr4.txt Md_chr5.txt Md_chr6.txt Md_chr7.txt Md_chr8.txt Md_chr9.txt Md_chr10.txt
-    156  245856  988210 Md_chr1.txt
-    128  201728  811380 Md_chr2.txt
-    108  170208  685104 Md_chr3.txt
-     92  144992  584066 Md_chr4.txt
-    123  193848  779831 Md_chr5.txt
-     77  121352  489390 Md_chr6.txt
-     98  154448  622008 Md_chr7.txt
-     63   99288  400970 Md_chr8.txt
-     61   96136  388329 Md_chr9.txt
-     54   85104  344187 Md_chr10.txt
-    960 1512960 6093475 total
 61. awk -F "\t" '{print NF; exit}' Md_chr1.txt Md_chr2.txt Md_chr3.txt Md_chr4.txt Md_chr5.txt Md_chr6.txt Md_chr7.txt Md_chr8.txt Md_chr9.txt Md_chr10.txt   =1576
-
+```
 
 
 Here is my brief description of what this code does
@@ -162,7 +125,7 @@ using the 'cut' command, all the words in the joined file that are ZMMIL, ZMMMR,
 
 
 
-###Teosinte Data
+### Teosinte Data
 
 ```
 here is my snippet of code used for data processing
@@ -179,20 +142,7 @@ here is my snippet of code used for data processing
 10. sort -k3,3n teosinte.txt > teosinte_sort.txt
 11. (head -n 1 teosinte.txt && tail -n +2 teosinte.txt | sort -k3,3n) > Teosinte_headersorted.txt
 12. grep -v "^#" Teosinte_headersorted.txt | cut -f2 | sort | uniq -c
-    155 1
-     53 10
-    127 2
-    107 3
-     91 4
-    122 5
-     76 6
-     97 7
-     62 8
-     60 9
-      1 Chromosome
-      6 multiple
-     27 unknown
-13. { head -n 1 Teosinte_headersorted.txt && awk '$2 == 1' Teosinte_headersorted.txt; } > Teosinte_chr1.txt
+ 13. { head -n 1 Teosinte_headersorted.txt && awk '$2 == 1' Teosinte_headersorted.txt; } > Teosinte_chr1.txt
 14. { head -n 1 Teosinte_headersorted.txt && awk '$2 == 2' Teosinte_headersorted.txt; } > Teosinte_chr2.txt
 15. { head -n 1 Teosinte_headersorted.txt && awk '$2 == 3' Teosinte_headersorted.txt; } > Teosinte_chr3.txt
 16. { head -n 1 Teosinte_headersorted.txt && awk '$2 == 4' Teosinte_headersorted.txt; } > Teosinte_chr4.txt
@@ -205,19 +155,6 @@ here is my snippet of code used for data processing
 23. { head -n 1 Teosinte_headersorted.txt && awk '$2 == "multiple"' Teosinte_headersorted.txt; } > Teosinte_chrm.txt
 24. { head -n 1 Teosinte_headersorted.txt && awk '$2 == "unknown"' Teosinte_headersorted.txt; } > Teosinte_chru.txt
 25. wc Teosinte_chr1.txt Teosinte_chr2.txt Teosinte_chr3.txt Teosinte_chr4.txt Teosinte_chr5.txt Teosinte_chr6.txt Teosinte_chr7.txt Teosinte_chr8.txt Teosinte_chr9.txt Teosinte_chr10.txt Teosinte_chrm.txt Teosinte_chru.txt 
-    156  152568  613862 Teosinte_chr1.txt
-    128  125184  504008 Teosinte_chr2.txt
-    108  105624  425572 Teosinte_chr3.txt
-     92   89976  362806 Teosinte_chr4.txt
-    123  120294  484419 Teosinte_chr5.txt
-     77   75306  304010 Teosinte_chr6.txt
-     98   95844  386396 Teosinte_chr7.txt
-     63   61614  249078 Teosinte_chr8.txt
-     61   59658  241221 Teosinte_chr9.txt
-     54   52812  213823 Teosinte_chr10.txt
-      7    6840   29405 Teosinte_chrm.txt
-     28   27384  111906 Teosinte_chru.txt
-    995  973104 3926506 total
 26. (head -n 1 Teosinte_allhyphen.txt && tail -n +2 Teosinte_allhyphen.txt | sort -k3,3nr) > Teosinte_decreasingall10.txt
 27. { head -n 1 Teosinte_decreasingall10.txt && awk '$2 == 1' Teosinte_decreasingall10.txt;} > Td_chr1.txt
 28. { head -n 1 Teosinte_decreasingall10.txt && awk '$2 == 2' Teosinte_decreasingall10.txt;} > Td_chr2.txt
@@ -230,18 +167,7 @@ here is my snippet of code used for data processing
 35. { head -n 1 Teosinte_decreasingall10.txt && awk '$2 == 9' Teosinte_decreasingall10.txt;} > Td_chr9.txt
 36. { head -n 1 Teosinte_decreasingall10.txt && awk '$2 == 10' Teosinte_decreasingall10.txt;}> Td_chr10.txt
 37. wc Td_chr1.txt Td_chr2.txt Td_chr3.txt Td_chr4.txt Td_chr5.txt Td_chr6.txt Td_chr7.txt Td_chr8.txt Td_chr9.txt Td_chr10.txt
-    156  152568  613862 Td_chr1.txt
-    128  125184  504008 Td_chr2.txt
-    108  105624  425572 Td_chr3.txt
-     92   89976  362806 Td_chr4.txt
-    123  120294  484419 Td_chr5.txt
-     77   75306  304010 Td_chr6.txt
-     98   95844  386396 Td_chr7.txt
-     63   61614  249078 Td_chr8.txt
-     61   59658  241221 Td_chr9.txt
-     54   52812  213823 Td_chr10.txt
-    960  938880 3785195 total
-
+```
 
 Here is my brief description of what this code does
 
