@@ -1,0 +1,622 @@
+    1  git clone https://github.com/EEOB-BioData/BCB546_Spring2023
+    2  https://github.com/EEOB-BioData/BCB546_Spring2025
+    3  git clone https://github.com/EEOB-BioData/BCB546_Spring2025
+    4  cd BCB546_Spring2025
+    5  ls
+    6  cd
+    7  pwd
+    8  ls
+    9  cd snps
+   10  cd SNPs
+   11  cd SNPS/
+   12  git clone https://github.com/EEOB-BioData/BCB546_Spring2025
+   13  cd SNPs
+   14  git clone https://github.com/vsbuffalo/bds-files
+   15  cd bds-files/
+   16  ls
+   17  cd chapter-03remedial-unix/
+   18  cd chapter-03-remedial-unix/
+   19  ls
+   20  man grep
+   21  grep -v "^>" tb1.fasta | grep --color -i "[^ATGC]"
+   22  ls
+   23  cd bds-files/chapter-3-remedian-unix/
+   24  cs bds-files/
+   25  cd bds-files/
+   26  ls
+   27  cd chapter-03-remedial-unix/
+   28  cat tb1.fasta
+   29  grep -v "^>" tb1.fasta | grep --color -i "[^ATGC]"
+   30  echo $?
+   31  false || echo "first command was not a success"
+   32  false && echo "first command was a success"
+   33  true || echo "first command was not a success"
+   34  true && echo "first command was a success"
+   35  echo "There are $(grep -cv '^>' tb1.fasta) lines of sequence in my FASTA file."
+   36  cd
+   37  ls
+   38  cd in_class/
+   39  mkdir results-$(date +%F)
+   40  ls
+   41  cd
+   42  cd in_class/
+   43  ls
+   44  cd bds-files
+   45  ls
+   46  cd chapter-07
+   47  cd chapter-07-unix-data-tools/
+   48  cat Mus_musculus.GRCm38.75_chr1.bed
+   49  head Mus_musculus.GRCm38.75_chr1.bed
+   50  head -n 3 Mus_musculus.GRCm38.75_chr1.bed
+   51  tail -n 3 Mus_musculus.GRCm38.75_chr1.bed
+   52  tail -n +2 genotypes.txt
+   53  (head -n 2; tail -n 2) < Mus_musculus.GRCm38.75_chr1.bed
+   54  1     3054233    3054733
+   55  grep 'gene_id "ENSMUSG00000025907"' Mus_musculus.GRCm38.75_chr1.gtf | head -n 1
+   56  (head -n 2; tail -n 2) < Mus_musculus.GRCm38.75_chr1.bed
+   57  grep 'gene_id "ENSMUSG00000025907"' Mus_musculus.GRCm38.75_chr1.gtf | head -n 1
+   58  grep "some_string" huge_file.txt | program1 | program2 | head -n 5
+   59  grep "some_string" huge_file.txt | program1 | program2 | head -n 3
+   60  grep "some_string" huge_file.txt | program1 | program2 | head -n 1
+   61  grep "some_string" huge_file.txt | program1 | program2 | head -n 5
+   62  cat contaminated.fastq
+   63  less contaminated.fastq
+   64  wc Mus_musculus.GRCm38.75_chr1.bed Mus_musculus.GRCm38.75_chr1.gtf
+   65  head wc Mus_musculus.GRCm38.75_chr1.bed
+   66  head Mus_musculus.GRCm38.75_chr1.gtf
+   67  wc -l Mus_musculus.GRCm38.75_chr1.bed Mus_musculus.GRCm38.75_chr1.gtf
+   68  ls -lh Mus_musculus.GRCm38.75_chr1.bed
+   69  du -h Mus_musculus.GRCm38.75_chr1.bed
+   70  head -n 1 Mus_musculus.GRCm38.75_chr1.bed
+   71  awk -F "\t" '{print NF; exit}' Mus_musculus.GRCm38.75_chr1.bed
+   72  ls
+   73  cd bds-files/
+   74  cd chapter-07-unix-data-tools/
+   75  pwd
+   76  head Mus_musculus.GRCm38.75_chr1.bed
+   77  head -n 1 Mus_musculus.GRCm38.75_chr1.bed
+   78  awk -F "\t" '{print NF; exit}' Mus_musculus.GRCm38.75_chr1.bed
+   79  awk -F "\t" '{print NF; exit}' Mus_musculus.GRCm38.75_chr1.gtf
+   80  tail -n +6 Mus_musculus.GRCm38.75_chr1.gtf | awk -F "\t" '{print NF; exit}'
+   81  grep -v "^#" Mus_musculus.GRCm38.75_chr1.gtf | awk -F "\t" '{print NF; exit}'
+   82  cut -f 2 Mus_musculus.GRCm38.75_chr1.bed | head -n 3
+   83  grep -v "^#" Mus_musculus.GRCm38.75_chr1.gtf | cut -f 1,4,5 | head -n 5
+   84  cut -d "," -f 2,3 Mus_musculus.GRCm38.75_chr1_bed.csv | head -n 3
+   85  grep -v "^#" Mus_musculus.GRCm38.75_chr1.gtf | cut -f1-8 | head -n3
+   86  grep -v "^#" Mus_musculus.GRCm38.75_chr1.gtf | cut -f 1-8 | column -t  | head -n 3
+   87  column -s "," -t Mus_musculus.GRCm38.75_chr1_bed.csv | head -n 3
+   88  grep "Olfr418-ps1" Mus_musculus.GRCm38.75_chr1_genes.txt
+   89  grep Olfr Mus_musculus.GRCm38.75_chr1_genes.txt | head -n 5
+   90  cat example.txt
+   91  grep -v "bioinfo" example.txt
+   92  grep -v -w "bioinfo" example.txt
+   93  grep -B1 "AGATCGG" contam.fastq | head -n 6
+   94  grep -A2 "AGATCGG" contam.fastq | head -n 6
+   95  grep "Olfr141[13]" Mus_musculus.GRCm38.75_chr1_genes.txt
+   96  grep -E "(Olfr218|Olfr1416)" Mus_musculus.GRCm38.75_chr1_genes.txt
+   97  grep "Olfr141" Mus_musculus.GRCm38.75_chr1_genes.txt
+   98  grep -c 'gene_biotype "snRNA"' Mus_musculus.GRCm38.75_chr1.gtf
+   99  grep -o "Olfr.*" Mus_musculus.GRCm38.75_chr1_genes.txt | head -n 3
+  100  file Mus_musculus.GRCm38.75_chr1.bed Mus_musculus.GRCm38.75_chr1.gtf
+  101  file improper.fa
+  102  cat
+  103  cat improper.fa
+  104  bioawk -cfastx '{print revcomp($seq)}' improper.fa
+  105  git clone git://github.com/lh3/bioawk.git
+  106  cd bioawk
+  107  git clone git://github.com/lh3/bioawk.git
+  108  bioawk -cfastx '{print revcomp($seq)}' improper.fa
+  109  module load bioawk
+  110  bioawk -cfastx '{print revcomp($seq)}' improper.fa
+  111  hexdump -c improper.fa
+  112  ls -1h fang_et_al_genotypes.txt
+  113  ls fang_et_al_genotypes.txt
+  114  cd bds_files
+  115  cd bds/files
+  116  git clone https://github.com/EEOB-BioData/BCB546_Spring2023
+  117  cd SNPs
+  118  git clone https://github.com/EEOB-BioData/BCB546_Spring2025
+  119  cd chapter-07-unix-data-tools
+  120  pwd
+  121  ls
+  122  cd bds-files
+  123  cd UNIX_assignment/data
+  124  cd ..
+  125  cd UNIX_Assignment.md
+  126  pwd
+  127  ls
+  128  cd bds-files/BCB546_Spring2024
+  129  cd BCB546_Spring2025
+  130  ls
+  131  cd assignments
+  132  ls
+  133  cd UNIX_Assignment
+  134  ls
+  135  ls -1h fang_et_al_genotypes.txt
+  136  cd fang_et_al_genotypes.txt
+  137  ls
+  138  ls -lh fang_et_al_genotypes.txt
+  139  wc -l fang_et_al_genotypes.txt
+  140  cd ..
+  141  cd UNIX_Assignment
+  142  ls
+  143  ls -lh
+  144  ls -lh fang_et_al_genotypes.txt
+  145  file fang_et_al_genotypes.txt
+  146  head -n 10 fang_et_al_genotypes.txt
+  147  head -n 10 snp_position.txt
+  148  tail -n 10 fang_et_al_genotypes.txt
+  149  wc -l fang_et_al_genotypes.txt
+  150  wc -w fang_et_al_genotypes.txt
+  151  head -n 1 fang_et_al_genotypes.txt | awk '{print NF}'
+  152  head -n 1 fang_et_al_genotypes.txt | awk -F',' '{print NF}'
+  153  grep "ZMMIL" fang_et_al_genotypes.txt
+  154  grep -c "NA" fang_et_al_genotypes.txt
+  155  cut -f3 fang_et_al_genotypes.txt | sort | uniq -c
+  156  file snp_position.txt
+  157  head -n 5 fang_et_al_genotypes.txt
+  158  grep "ZMMLR" fang_et_al_genotypes.txt
+  159  grep "ZMMMR" fang_et_al_genotypes.txt
+  160  ssh sristid@nova.its.iastate.edu
+  161  ls -lh snp_position.txt
+  162  pwd
+  163  ls
+  164  cd BCB546_Spring2025
+  165  ls
+  166  cd UNIX_assignments
+  167  cd assignments
+  168  LS
+  169  ls
+  170  cd UNIX_Assignment
+  171  ls
+  172  ls -lh snp_position.txt
+  173  file snp_position.txt
+  174  head -n 5 snp_position.txt
+  175  tail -n 5 snp_position.txt
+  176  wc -l snp_position.txt
+  177  wc -w snp_position.txt
+  178  head -n 1 snp_position.txt | awk '{print NF}'
+  179  head -n 1 snp_position.txt| awk -F',' '{print NF}'
+  180  ls -lh snp_position.txt
+  181  awk '{print NF}' snp_position.txt | sort -nu | tail -n 1
+  182  wc snp_position.txt
+  183  mkdir sdunixtrial1
+  184  ls
+  185  cp snp
+  186  cp snp_position.txt transposed_genotypes.txt sdunixtrial1
+  187  cd sdunixtrial1/
+  188  ls
+  189  vim snp_position.txt 
+  190  vim transposed_genotypes.txt
+  191  tail -n +3 transposed_genotypes.txt> transposed_headers.txt
+  192  ls
+  193  wc transposed_headers.txt
+  194  tail -n +6 tranposed_headers.txt | awk -F "\t" '{print NF; exit}' 
+  195  tail -n +6 transposed_headers.txt | awk -F "\t" '{print NF; exit}'
+  196  head -n 1 snp_position.txt
+  197  sed 's/Group/SNP_ID/g' transposed_headers.txt | head -n -1 > transposed_changegroup.txt
+  198  ls
+  199  ll
+  200  vim transposed_changegroup.txt
+  201  join -1 1 -2 1 snp_position.txt tranposed_joined.txt > joined.txt
+  202  pwd
+  203  ls
+  204  cd BCB546_Spring2025
+  205  LS
+  206  ls
+  207  cd assignments/
+  208  ls
+  209  cd UNIX_Assignment/
+  210  ls
+  211  cd snp_position.txt
+  212  cd transposed_genotypes.txt
+  213  cd sdunixtrial1
+  214  ls
+  215  cd transposed_changegroup.txt
+  216  vim tranposed_changegroup.txt
+  217  head -n 1 transposed_changegroup.txt
+  218  vim transposed_changegroup.txt
+  219  join -1 1 -2 1 -a 1 snp_position.txt tranposed_changegroup.txt > transpose_joined.txt
+  220  join -1 1 -2 1 -a 1 snp_position.txt transposed_changegroup.txt > transposed_joined.txt
+  221  wc transposed_joined.txt
+  222  join -1 1 -2 1 -a 1 snp_position.txt tranposed_changegroup.txt > transposed_joined.txt
+  223  join -1 1 -2 1 -a 1 snp_position.txt transposed_changegroup.txt > transposed_joined.txt
+  224  wc transposed_joined.txt
+  225  vim transposed_joined.txt
+  226  wc transposed_joined.txt
+  227  pwd
+  228  ls
+  229  cd BCB546_Spring2025/assignments/UNIX_assignments
+  230  cd BCB546_Spring2025
+  231  ls
+  232  cd assignments
+  233  ls
+  234  cd UNIX_Assignment/
+  235  ls
+  236  cd sdunixtrial1/
+  237  ls
+  238  cd transposed_joined.txt
+  239  cd transpose_joined.txt
+  240  cd joined.txt
+  241  wc transposed_joined.txt
+  242  tail -n +6 transposed_joined.txt | awk -F "\t" '{print NF; exit}'
+  243  join -1 1 -2 1 -t $'\t' snp_position.txt transposed_headers.txt > transposed_joined.txt
+  244  join -1 1 -2 1 -t $'\t' snp_position.txt transposed_headers.txt> transposed_joined.txt
+  245  wc transposed_genotypes.txt
+  246  wc transposed_changegroup.txt
+  247  we transposed_headers.txt
+  248  wc transposed_headers.txt
+  249  join -1 1 -2 1 -t $'\t' snp_position.txt transposed_headers.txt > transposed_joined.txt
+  250  pwd
+  251  cd sdunixtrial1
+  252  ls
+  253  cd ..
+  254  ls
+  255  cd sdunixtrial1
+  256  ls
+  257  rm -rf snp_position.txt
+  258  ls
+  259  cd ..
+  260  ls
+  261  cp snp_position.txt sdunixtrial1
+  262  ls
+  263  cd sdunixtrial1
+  264  ls
+  265  join -1 1 -2 1 -t $'\t' snp_position.txt transposed_headers.txt > transposed_joined.txt
+  266  vim snp_position.txt
+  267  pwd
+  268  ls
+  269  cd BCB546_Spring2025
+  270  ls
+  271  cd assignments
+  272  ls
+  273  cd UNIX_Assignment/
+  274  ls
+  275  pwd
+  276  ls
+  277  cd sdunixtrial1
+  278  ls
+  279  wc transposed_headers.txt
+  280  tail -n +6 transposed_headers.txt | awk -F "\t" '{print NF; exit}'
+  281  cd ..
+  282  ls
+  283  cd sdunixtrial1
+  284  ls
+  285  join -1 1 -2 1 -t $'t' snp_position.txt transposed_headers.txt > transposed_joined.txt
+  286  wc transposed_headers.txt
+  287  wc transposed_joined.txt
+  288  wc snp_position.txt
+  289  join -1 1 -2 1 -t $'\t' snp_position.txt transposed_headers.txt > joinedheaders.txt
+  290  tail -n +6 transposed_headers.txt | awk -F "\t" '{print NF; exit}'
+  291  vim transposed_headers.txt
+  292  sed 's/Group/SNP_ID/g' transposed_headers.txt > tranposednogroup.txt
+  293  l
+  294  ls
+  295  wc transposednogroup.txt
+  296  rm -rf tranposednogroup.txt
+  297  ls
+  298  sed 's/Group/SNP_ID/g' transposed_headers.txt > nogroup.txt
+  299  ls
+  300  wc nogroup.txt
+  301  vim nogroup.txt
+  302  join -1 1 -2 1 -t $'\t' snp_position.txt nogroup.txt > transposed_joined.txt
+  303  ls
+  304  wc transposed_joined.txt
+  305  tail -n +6 transposed_joined.txt | awk -F "\t" '{print NF; exit}'
+  306  vim transposed_joined.txt
+  307  cd ..
+  308  ls
+  309  cd sdunixtrial1
+  310  ls
+  311  wc joinedheaders.txt
+  312  vim joinedheaders.txt
+  313  pwd
+  314  ls
+  315  cd BCB546_Spring2025
+  316  ls
+  317  cd assignments
+  318  ls
+  319  cd UNIX_Assignment/
+  320  ls
+  321  cd sdunixtrial1/
+  322  ls
+  323  vim transposed_joined.txt
+  324  wc transposed_joined.txt
+  325  wc transposed_header.txt
+  326  wc transposed_headers.txt
+  327  vim transposed_joined.txt
+  328  wc transposed_joined.txt
+  329  awk '{for(i=1;i<=NF;i++) if ($i == "ZMMIL") print "Found at column " i}' transposed_joined.txt
+  330  awk '{for(i=1;i<=NF;i++) if ($i == "ZMMLR") print "Found at column " i}' transposed_joined.txt
+  331  awk '{for(i=1;i<=NF;i++) if ($i == "ZMMMR") print "Found at column " i}' transposed_joined.txt
+  332  awk '{for(i=1;i<=NF;i++) if ($i == "ZMMIL") count++} END{print count}' transposed_joined.txt
+  333  awk '{for(i=1;i<=NF;i++) if ($i == "ZMMLR") count++} END{print count}' transposed_joined.txt
+  334  awk '{for(i=1;i<=NF;i++) if ($i == "ZMMMR") count++} END{print count}' transposed_joined.txt
+  335  cut -d $'\t' -f1,3,4,2508-2797,1225-2480,2481-2507 transposed_joined.txt > maize.txt
+  336  ll
+  337  wc maize.txt
+  338  vim maize.txt
+  339  tail -n +6 maize.txt | awk -F "\t" '{print NF; exit}'
+  340  ld
+  341  ls
+  342  sort -k3,3n maize.txt > maize_sort.txt
+  343  ls
+  344  wc maize_sort.txt
+  345  tail -n +6 maize_sort.txt | awk -F "\t" '{print NF; exit}'
+  346  vim maize_sort.txt
+  347  (head -n 1 maize.txt && tail -n +2 maize.txt | sort -k3,3n) > Maize_headersorted.txt
+  348  ls
+  349  wc Maize_headersorted.txt
+  350  tail -n +6 Maize_headersorted.txt | awk -F "\t" '{print NF; exit}'
+  351  vim Maize_headersorted.txt
+  352  grep -v "^#" Maize_headersorted.txt | cut -f2 | sort | uniq -c
+  353  { head -n 1 Maize_headersorted.txt && awk '$2 == 1' Maize_headersorted.txt; } > Maize_chr1.txt
+  354  wc Maize_chr1.txt
+  355  tail -n +6 Maize_chr1.txt | awk -F "\t" '{print NF; exit}'
+  356  vim Maize_chr1.txt
+  357  { head -n 1 Maize_headersorted.txt && awk '$2 == 2' Maize_headersorted.txt; } > Maize_chr2.txt
+  358  wc Maize_chr2.txt
+  359  tail -n +6 Maize_chr2.txt | awk -F "\t" '{print NF; exit}'
+  360  { head -n 1 Maize_headersorted.txt && awk '$2 == 3' Maize_headersorted.txt; } > Maize_chr3.txt
+  361  wc Maize_chr3.txt
+  362  { head -n 1 Maize_headersorted.txt && awk '$2 == 4' Maize_headersorted.txt; } > Maize_chr4.txt
+  363  { head -n 1 Maize_headersorted.txt && awk '$2 == 5' Maize_headersorted.txt; } > Maize_chr5.txt
+  364  { head -n 1 Maize_headersorted.txt && awk '$2 == 6' Maize_headersorted.txt; } > Maize_chr6.txt
+  365  { head -n 1 Maize_headersorted.txt && awk '$2 == 7' Maize_headersorted.txt; } > Maize_chr7.txt
+  366  { head -n 1 Maize_headersorted.txt && awk '$2 == 8' Maize_headersorted.txt; } > Maize_chr8.txt
+  367  { head -n 1 Maize_headersorted.txt && awk '$2 == 9' Maize_headersorted.txt; } > Maize_chr9.txt
+  368  { head -n 1 Maize_headersorted.txt && awk '$2 == 10' Maize_headersorted.txt; } > Maize_chr10.txt
+  369  { head -n 1 Maize_headersorted.txt && awk '$2 == "multiple"' Maize_headersorted.txt; } > Maize_chrm.txt
+  370  { head -n 1 Maize_headersorted.txt && awk '$2 == "unknown"' Maize_headersorted.txt; } > Maize_chru.txt
+  371  wc Maize_chr1.txt Maize_chr2.txt Maize_chr3.txt Maize_chr4.txt Maize_chr5.txt Maize_chr6.txt Maize_chr7.txt Maize_chr8.txt Maize_chr9.txt Maize_chr10.txt Maize_chrm.txt Maize_chru.txt 
+  372  tail -n +6 Maize_chr1.txt Maize_chr2.txt Maize_chr3.txt Maize_chr4.txt Maize_chr5.txt Maize_chr6.txt Maize_chr7.txt Maize_chr8.txt Maize_chr9.txt Maize_chr10.txt Maize_chrm.txt Maize_chru.txt | awk -F "\t" '{print NF; exit}'
+  373  awk -F "\t" '{print NF; exit}' Maize_chr1.txt Maize_chr2.txt Maize_chr3.txt Maize_chr4.txt Maize_chr5.txt Maize_chr6.txt Maize_chr7.txt Maize_chr8.txt Maize_chr9.txt Maize_chr10.txt Maize_chrm.txt Maize_chru.txt
+  374  vim Maize_chr1.txt
+  375  vim Maize_chr2.txt
+  376  vim Maize_chr3.txt
+  377  vim Maize_chrm.txt
+  378  vim Maize_chru.txt
+  379  sed 's/?/-/g' Maize_headersorted.txt > Maize_allhyphen.txt
+  380  wc Maize_allhyphen.txt
+  381  awk -F "\t" '{print NF; exit}' Maize_allhyphen.txt
+  382  vim Maize_allhyphen.txt
+  383  mkdir Maize_increasingorder.txt
+  384  ll
+  385  mv Maize_chr1.txt Maize_chr2.txt Maize_chr3.txt Maize_chr4.txt Maize_chr5.txt  Maize_chr6.txt Maize_chr7.txt Maize_chr8.txt Maize_chr9.txt Maize_chr10.txt Maize_chrm.txt Maize_chru.txt Maize_increasingorder.txt
+  386  ll
+  387  cd Maize_increasingorder.txt/
+  388  ls
+  389  mkdir Maize_decreasingorder.txt
+  390  ll
+  391  cd ..
+  392  cd sdunixtrial1
+  393  ls
+  394  pwd
+  395  cd Maize_increasingorder.txt
+  396  ls
+  397  rm -rf Maize.decreasingorder.txt
+  398  ls
+  399  cd Maize_increasingorder.txt
+  400  pwd
+  401  cd sdunixtrial1
+  402  pwd
+  403  ls
+  404  cd ..
+  405  ls
+  406  cd Maize_increasingorder.txt
+  407  ls
+  408  rm -rf Maize_decreasingorder.txt
+  409  ls
+  410  cd ..
+  411  mkdir Maize_decreasingorder.txt
+  412  ls
+  413  cd Maize_increasingorder.txt
+  414  ls
+  415  cd ..
+  416  ls
+  417  mv Maize_allhyphen.txt Maize_decreasingorder.txt
+  418  cd Maize_decreasingorder.txt/
+  419  ls
+  420  (head -n 1 Maize_allhyphen.txt && tail -n +2 Maize_allhyphen.txt | sort -k3,3nr) > Maize_decreasingall10.txt
+  421  wc Maize_decreasingall10.txt 
+  422  awk -F "\t" '{print NF; exit}' Maize_decreasingall10.txt
+  423  vim Maize_decreasingall10.txt 
+  424  ls
+  425  { head -n 1 Maize_decreasingall10.txt && awk '$2 == 1' Maize_decreasingall10.txt; } > Md_chr1.txt
+  426  { head -n 1 Maize_decreasingall10.txt && awk '$2 == 2' Maize_decreasingall10.txt; } > Md_chr2.txt
+  427  { head -n 1 Maize_decreasingall10.txt && awk '$2 == 3' Maize_decreasingall10.txt; } > Md_chr3.txt
+  428  { head -n 1 Maize_decreasingall10.txt && awk '$2 == 4' Maize_decreasingall10.txt; } > Md_chr4.txt
+  429  { head -n 1 Maize_decreasingall10.txt && awk '$2 == 5' Maize_decreasingall10.txt; } > Md_chr5.txt
+  430  { head -n 1 Maize_decreasingall10.txt && awk '$2 == 6' Maize_decreasingall10.txt; } > Md_chr6.txt
+  431  { head -n 1 Maize_decreasingall10.txt && awk '$2 == 7' Maize_decreasingall10.txt; } > Md_chr7.txt
+  432  { head -n 1 Maize_decreasingall10.txt && awk '$2 == 8' Maize_decreasingall10.txt; } > Md_chr8.txt
+  433  { head -n 1 Maize_decreasingall10.txt && awk '$2 == 9' Maize_decreasingall10.txt; } > Md_chr9.txt
+  434  { head -n 1 Maize_decreasingall10.txt && awk '$2 == 10' Maize_decreasingall10.txt; } > Md_chr10.txt
+  435  wc Md_chr1.txt Md_chr2.txt Md_chr3.txt Md_chr4.txt Md_chr5.txt Md_chr6.txt Md_chr7.txt Md_chr8.txt Md_chr9.txt Md_chr10.txt 
+  436  awk -F "\t" '{print NF; exit}' Md_chr1.txt Md_chr2.txt Md_chr3.txt Md_chr4.txt Md_chr5.txt Md_chr6.txt Md_chr7.txt Md_chr8.txt Md_chr9.txt Md_chr10.txt
+  437  vim Md_chr1.txt
+  438  vim Md_chr2.txt 
+  439  vim Md_chr3.txt
+  440  history > history.txt
+  441  cat history.txt
+  442  pwd
+  443  ls 
+  444  pwd
+  445  ls
+  446  cd BCB546_Spring2025
+  447  LS
+  448  ls
+  449  cd assignments/
+  450  ls
+  451  cd UNIX_Assignment/
+  452  ls
+  453  cd sdunixtrial1/
+  454  ls
+  455  cd Maize_increasingorder.txt/
+  456  ls
+  457  cd ..
+  458  ls
+  459  cd Maize_decreasingorder.txt/
+  460  ls
+  461  wc transposed_joined.txt
+  462  cd .. 
+  463  ls
+  464  wc transposed_joined.txt
+  465  vim transposed_joined.txt 
+  466   awk '{for(i=1;i<=NF;i++) if ($i == "ZMPBA") print "Found at column " i}' transposed_joined.txt
+  467  awk '{for(i=1;i<=NF;i++) if ($i == "ZMPIL") print "Found at column " i}' transposed_joined.txt
+  468  awk '{for(i=1;i<=NF;i++) if ($i == "ZMPJA") print "Found at column " i}' transposed_joined.txt
+  469  awk '{for(i=1;i<=NF;i++) if ($i == "ZMPBA") count++} END{print count}' transposed_joined.txt
+  470  awk '{for(i=1;i<=NF;i++) if ($i == "ZMPIL") count++} END{print count}' transposed_joined.txt
+  471  awk '{for(i=1;i<=NF;i++) if ($i == "ZMPJA") count++} END{print count}' transposed_joined.txt
+  472  cut -d $'\t' -f1,3,4,89-988,1178-1218,989-1022 transposed_joined.txt > teosinte.txt
+  473  ll
+  474  wc teosinte.txt
+  475  vim teosinte.txt
+  476  tail -n +6 teosinte.txt | awk -F "\t" '{print NF; exit}'
+  477  ls
+  478   sort -k3,3n teosinte.txt > teosinte_sort.txt
+  479  ls
+  480  wc teosinte_sort.txt
+  481  tail -n +6 teosinte_sort.txt | awk -F "\t" '{print NF; exit}'
+  482  vim teosinte.txt
+  483  (head -n 1 teosinte.txt && tail -n +2 teosinte.txt | sort -k3,3n) > Teosinte_headersorted.txt
+  484  wc Teosinte_headersorted.txt 
+  485  tail -n +6 Teosinte_headersorted.txt | awk -F "\t" '{print NF; exit}'
+  486  vim Teosinte_headersorted.txt 
+  487  grep -v "^#" Teosinte_headersorted.txt | cut -f2 | sort | uniq -c
+  488  { head -n 1 Teosinte_headersorted.txt && awk '$2 == 1' Teosinte_headersorted.txt; } > Teosinte_chr1.txt
+  489  { head -n 1 Teosinte_headersorted.txt && awk '$2 == 2' Teosinte_headersorted.txt; } > Teosinte_chr2.txt
+  490  { head -n 1 Teosinte_headersorted.txt && awk '$2 == 3' Teosinte_headersorted.txt; } > Teosinte_chr3.txt
+  491  { head -n 1 Teosinte_headersorted.txt && awk '$2 == 4' Teosinte_headersorted.txt; } > Teosinte_chr4.txt
+  492  { head -n 1 Teosinte_headersorted.txt && awk '$2 == 5' Teosinte_headersorted.txt; } > Teosinte_chr5.txt
+  493  { head -n 1 Teosinte_headersorted.txt && awk '$2 == 6' Teosinte_headersorted.txt; } > Teosinte_chr6.txt
+  494  { head -n 1 Teosinte_headersorted.txt && awk '$2 == 7' Teosinte_headersorted.txt; } > Teosinte_chr7.txt
+  495  { head -n 1 Teosinte_headersorted.txt && awk '$2 == 8' Teosinte_headersorted.txt; } > Teosinte_chr8.txt
+  496  { head -n 1 Teosinte_headersorted.txt && awk '$2 == 9' Teosinte_headersorted.txt; } > Teosinte_chr9.txt
+  497  { head -n 1 Teosinte_headersorted.txt && awk '$2 == 10' Teosinte_headersorted.txt; } > Teosinte_chr10.txt
+  498  { head -n 1 Teosinte_headersorted.txt && awk '$2 == "multiple"' Teosinte_headersorted.txt; } > Teosinte_chrm.txt
+  499  { head -n 1 Teosinte_headersorted.txt && awk '$2 == "unknown"' Teosinte_headersorted.txt; } > Teosinte_chru.txt
+  500  wc Teosinte_chr1.txt Teosinte_chr2.txt Teosinte_chr3.txt Teosinte_chr4.txt Teosinte_chr5.txt Teosinte_chr6.txt Teosinte_chr7.txt Teosinte_chr8.txt Teosinte_chr9.txt Teosinte_chr10.txt Teosinte_chrm.txt Teosinte_chru.txt
+  501  awk -F "\t" '{print NF; exit}' Teosinte_chr1.txt Teosinte_chr2.txt Teosinte_chr3.txt Teosinte_chr4.txt Teosinte_chr5.txt Teosinte_chr6.txt Teosinte_chr7.txt Teosinte_chr8.txt Teosinte_chr9.txt Teosinte_chr10.txt Teosinte_chrm.txt Teosinte_chru.txt
+  502  vim Teosinte_chr1.txt
+  503  vim Teosinte_chr2.txt
+  504  vim Teosinte_chrm.txt
+  505  sed 's/?/-/g' Teosinte_headersorted.txt > Teosinte_allhyphen.txt
+  506  wc Teosinte_allhyphen.txt 
+  507  awk -F "\t" '{print NF; exit}' Teosinte_allhyphen.txt
+  508  vim Teosinte_allhyphen.txt 
+  509  mkdir Teosinte_increasingorder.txt
+  510  ll
+  511  mv Teosinte_chr1.txt Teosinte_chr2.txt Teosinte_chr3.txt Teosinte_chr4.txt Teosinte_chr5.txt Teosinte_chr6.txt Teosinte_chr7.txt Teosinte_chr8.txt Teosinte_chr9.txt Teosinte_chr10.txt Teosinte_chrm.txt Teosinte_chru.txt Teosinte_increasingorder.txt/
+  512  ll
+  513  cd Teosinte_increasingorder.txt/
+  514  ls
+  515  mkdir Teosinte_decreasingorder.txt
+  516  ll
+  517  rm -rf Teosinte_decreasingorder.txt
+  518  ll
+  519  cd ..
+  520  ls
+  521  mkdir Teosinte_decreasingorder.txt
+  522  ll
+  523  cd Teosinte_increasingorder.txt/
+  524  ls
+  525  cd ..
+  526  ls
+  527  mv Teosinte_allhyphen.txt Teosinte_decreasingorder.txt/
+  528  ls
+  529  cd Teosinte_decreasingorder.txt/
+  530  ls
+  531  (head -n 1 Teosinte_allhyphen.txt && tail -n +2 Teosinte_allhyphen.txt | sort -k3,3nr) > Teosinte_decreasingall10.txt
+  532  wc Teosinte_decreasingall10.txt 
+  533  awk -F "\t" '{print NF; exit}' Teosinte_decreasingall10.txt
+  534  vim Teosinte_decreasingall10.txt 
+  535  ls
+  536  { head -n 1 Teosinte_decreasingall10.txt && awk '$2 == 1' Teosinte_decreasingall10.txt; } > Td_chr1.txt
+  537  { head -n 1 Teosinte_decreasingall10.txt && awk '$2 == 2' Teosinte_decreasingall10.txt; } > Td_chr2.txt
+  538  { head -n 1 Teosinte_decreasingall10.txt && awk '$2 == 3' Teosinte_decreasingall10.txt; } > Td_chr3.txt
+  539  { head -n 1 Teosinte_decreasingall10.txt && awk '$2 == 4' Teosinte_decreasingall10.txt; } > Td_chr4.txt
+  540  { head -n 1 Teosinte_decreasingall10.txt && awk '$2 == 5' Teosinte_decreasingall10.txt; } > Td_chr5.txt
+  541  { head -n 1 Teosinte_decreasingall10.txt && awk '$2 == 6' Teosinte_decreasingall10.txt; } > Td_chr6.txt
+  542  { head -n 1 Teosinte_decreasingall10.txt && awk '$2 == 7' Teosinte_decreasingall10.txt; } > Td_chr7.txt
+  543  { head -n 1 Teosinte_decreasingall10.txt && awk '$2 == 8' Teosinte_decreasingall10.txt; } > Td_chr8.txt
+  544  { head -n 1 Teosinte_decreasingall10.txt && awk '$2 == 9' Teosinte_decreasingall10.txt; } > Td_chr9.txt
+  545  { head -n 1 Teosinte_decreasingall10.txt && awk '$2 == 10' Teosinte_decreasingall10.txt; } > Td_chr10.txt
+  546  wc Td_chr1.txt Td_chr2.txt Td_chr3.txt Td_chr4.txt Td_chr5.txt Td_chr6.txt Td_chr7.txt Td_chr8.txt Td_chr9.txt Td_chr10.txt
+  547  awk -F "\t" '{print NF; exit}'Td_chr1.txt Td_chr2.txt Td_chr3.txt Td_chr4.txt Td_chr5.txt Td_chr6.txt Td_chr7.txt Td_chr8.txt Td_chr9.txt Td_chr10.txt
+  548  awk -F "\t" '{print NF; exit}' Td_chr1.txt Td_chr2.txt Td_chr3.txt Td_chr4.txt Td_chr5.txt Td_chr6.txt Td_chr7.txt Td_chr8.txt Td_chr9.txt Td_chr10.txt
+  549  vim Td_chr1.txt
+  550  vim Td_chr5.txt 
+  551  cd ..
+  552  ls
+  553  cd Teosinte_decreasingorder.txt/
+  554  ls
+  555  cd ..
+  556  ls
+  557  cd Teosinte_increasingorder.txt/
+  558  ls
+  559  cd ..
+  560  cd Maize_increasingorder.txt/
+  561  ls
+  562  cd ..
+  563  cd Maize_decreasingorder.txt/
+  564  ls
+  565  mv history.txt sdunixtrial1
+  566  ls
+  567  cd ..
+  568  ls
+  569  cd Maize_increasingorder.txt/
+  570  ls
+  571  cd ..
+  572  cd Maize_decreasingorder.txt/
+  573  ls
+  574  cd sdunixtrial1
+  575  cd ..
+  576  ls
+  577  cd ..
+  578  ls
+  579  cd sdunixtrial1/
+  580  ls
+  581  cd Teosinte_increasingorder.txt/
+  582  ls
+  583  cd..
+  584  cd ..
+  585  cd Teosinte_decreasingorder.txt/
+  586  ls
+  587  cd ..
+  588  ls
+  589  cd Maize_increasingorder.txt/
+  590  ls
+  591  cd ..
+  592  ls
+  593  cd Maize_decreasingorder.txt/
+  594  ls
+  595  rm -rf sdunixtrial1 
+  596  ls
+  597  cd ..
+  598  ls
+  599  cd ..
+  600  ls
+  601  cd ..
+  602  ls
+  603  cd UNIX_Assignment/
+  604  LS
+  605  ls
+  606  cd sdunixtrial1/
+  607  ls
+  608  cd Maize_decreasingorder.txt/
+  609  ls
+  610  cd ..
+  611  ls
+  612  cd Maize_increasingorder.txt/
+  613  ls
+  614  cd ..
+  615  ls
+  616  cd Teosinte_increasingorder.txt/
+  617  ls
+  618  cd ..
+  619  ls
+  620  cd Teosinte_decreasingorder.txt/
+  621  ls
+  622  history > history.txt
